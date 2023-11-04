@@ -16,7 +16,6 @@ import streamlit as st
 import pandas as pd
 from streamlit.logger import get_logger
 
-import psycopg2
 import datetime
 import time
 
