@@ -31,9 +31,9 @@ def run():
         page_icon="👋",
     )
 
-    st.write("# Welcome to Streamlit! 👋")
+    st.write("# Temperature Sensor Dashboard! 👋")
 
-    st.sidebar.success("Select a demo above.")
+    # st.sidebar.success("Select a demo above.")
 
     today = datetime.datetime.now()
     next_year = today.year
@@ -47,7 +47,7 @@ def run():
     
     
     d = st.date_input(
-        "Select your vacation for next year",
+        "เลือกวันที่ ที่ต้องการดูข้อมูล",
         (noww, noww),
         jan_1,
         dec_31,
@@ -61,7 +61,7 @@ def run():
       # Initialize connection.
       conn = st.connection("postgresql", type="sql")
       df = conn.query(f'SELECT * FROM mobiles WHERE created_at > {unixtime0} AND created_at < {unixtime1};', ttl="10m")
-      with st.expander("See explanation Data"):
+      with st.expander("See explanation Raw Data"):
         st.write(df)
       
       
@@ -73,7 +73,7 @@ def run():
 
 
       st.download_button(
-        "Press to Download",
+        "Download File",
         csv,
         "file.csv",
         "text/csv",
